@@ -1,0 +1,31 @@
+{
+    "name": "piyushjaiswal/paysprint",
+    "description": "Paysprint API integration for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Piyush Jaiswal",
+        "email": "piyushjaiswal474@gmail.com"
+      }
+    ],
+    "autoload": {
+      "psr-4": {
+        "PiyushJaiswal\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "PiyushJaiswal\\PaysprintServiceProvider"
+        ]
+      }
+    },
+    "require": {
+      "php": ">=7.3",
+      "illuminate/support": "^8.0|^9.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+  }
+  
