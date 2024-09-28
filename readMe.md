@@ -150,3 +150,106 @@ else
 {"status":false,"response_code":2,"message":"Authentication failed"}
 ```
 
+### Available API Methods
+1. Get Operators
+Description:
+The Get Operator Service allows you to fetch the list of available operators for a specific service (e.g., mobile, DTH, etc.).
+
+Method:
+```php
+public function getOperators($serviceType)
+```
+```php
+use PiyushJaiswal\Services\MobileDTHRechargeService;
+
+$operatorService = new MobileDTHRechargeService();
+$response = $operatorService->getOperators('mobile');
+
+```
+
+2. HLR Check Service for Mobile
+Description:
+The HLR (Home Location Register) Check Service allows you to verify the status of a mobile number before proceeding with a recharge.
+
+Method:
+```php
+public function hlrCheck($mobileNumber, $type)
+```
+### Usage Example:
+```php
+use PiyushJaiswal\Services\MobileDTHRechargeService;
+
+$hlrCheckService = new MobileDTHRechargeService();
+$response = $hlrCheckService->hlrCheck('9876543210', 'mobile');
+
+
+```json
+
+{"status":true,"response_code":1,"info":{"operator":"Jio","circle":"UP West"},"message":"Successful"}
+```
+
+### 2. DTH Check Service
+Description:
+The DTH Check Service allows you to verify the status of a DTH account number before proceeding with a recharge.
+
+Method:
+```php 
+public function dthCheck($caNumber, $operator)
+
+```
+```php
+use PiyushJaiswal\Services\MobileDTHRechargeService;
+
+$dthCheckService = new MobileDTHRechargeService();
+$response = $dthCheckService->dthCheck('123456789', 'TataSky');
+
+```
+```json
+{
+    "status": true,
+    "response_code": 1,
+    "info": [
+        {
+            "MonthlyRecharge": 499,
+            "Balance": "11.27",
+            "customerName": "EFDSF AXA",
+            "status": "Active",
+            "NextRechargeDate": "11-12-2024",
+            "lastrechargeamount": "1500",
+            "lastrechargedate": "2024-09-08T18:38:10.337",
+            "planname": "Royale Sports Kids HSM HD"
+        }
+    ],
+    "message": "Fetch Successful"
+}
+```
+### 3. Browse Plan for Mobile Recharge
+Description:
+This service allows you to browse available mobile recharge plans based on the user's circle and operator.
+
+Method:
+```php
+public function browsePlan($circle, $operator)
+```
+Usage Example:
+```php
+use PiyushJaiswal\Services\MobileDTHRechargeService;
+
+$browsePlanService = new MobileDTHRechargeService();
+$response = $browsePlanService->browsePlan('Delhi', 'Airtel');
+```
+
+### Do Recharge for Mobile/DTH
+Description:
+This service allows you to perform mobile recharges and DTH by providing the mobile/Dth number, operator, and amount.
+
+Method:
+```php
+public function doRecharge($operatorId, $mobileNumber, $amount,$refrenceId)
+```
+```php
+use PiyushJaiswal\Services\MobileDTHRechargeService;
+
+$mobileRechargeService = new MobileDTHRechargeService();
+$response = $mobileRechargeService->doRecharge('Airtel', '9876543210', 199,'qdd2233wfa');
+```
