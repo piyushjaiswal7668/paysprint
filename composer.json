@@ -1,6 +1,7 @@
 {
     "name": "piyushjaiswal/paysprint",
-    "description": "Paysprint API integration for Laravel",
+    "description": "A Laravel package for Paysprint API integration for various services like recharge, bill payments, DTH, LIC, Fastag, etc.",
+    "keywords": ["paysprint", "laravel", "api", "bill payments", "recharge", "fastag", "DTH", "LIC"],
     "type": "library",
     "license": "MIT",
     "authors": [
