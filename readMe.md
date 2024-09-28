@@ -1551,7 +1551,8 @@ On Success:
     "status": true,
     "response_code": 1,
     "message": "Refund claimed successfully"
-}```
+}
+```
 On Failure:
 ```json
 
